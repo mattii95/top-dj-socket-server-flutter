@@ -20,10 +20,17 @@
             console.log('Conexión perdida');
         });
 
-        client.emit('mensaje', {nombre: 'Matias'});
-
         client.on('mensaje', function(payload) {
             console.log('escuchando', payload);
+        });
+
+        client.on('message', function(payload) {
+            console.log(payload);
+        });
+
+        client.on('active-djs', function(djs) {
+            console.clear();
+            console.table(djs);
         });
     </script>
 </body>
